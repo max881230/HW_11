@@ -1,0 +1,159 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "name": "liquidatePosition",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "liquidatePosition()": "9220ee6b"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"liquidatePosition\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/interfaces/IFakeLendingProtocol.sol\":\"IFakeLendingProtocol\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":@openzeppelin/=node_modules/@openzeppelin/\",\":@uniswap/=node_modules/@uniswap/\",\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":eth-gas-reporter/=node_modules/eth-gas-reporter/\",\":forge-std/=lib/forge-std/src/\",\":hardhat/=node_modules/hardhat/\",\":v2-core/=lib/v2-core/contracts/\",\":v2-periphery/=lib/v2-periphery/contracts/\"]},\"sources\":{\"contracts/interfaces/IFakeLendingProtocol.sol\":{\"keccak256\":\"0xb30b3a01edcbba2761490e3c62fec9ca0be69242eeab7d316fb199bd99b8030e\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://244ef8e41a800bfebbc3e279413a67884269bdd4bac8bd2a07d58235864e43f3\",\"dweb:/ipfs/QmQEC25D5jGZttjsnFrShq6e4SE79NRXM8HKQurcEKSU2f\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.17+commit.8df45f5f"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [],
+          "stateMutability": "nonpayable",
+          "type": "function",
+          "name": "liquidatePosition"
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {},
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {},
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        "@openzeppelin/=node_modules/@openzeppelin/",
+        "@uniswap/=node_modules/@uniswap/",
+        "ds-test/=lib/forge-std/lib/ds-test/src/",
+        "eth-gas-reporter/=node_modules/eth-gas-reporter/",
+        "forge-std/=lib/forge-std/src/",
+        "hardhat/=node_modules/hardhat/",
+        "v2-core/=lib/v2-core/contracts/",
+        "v2-periphery/=lib/v2-periphery/contracts/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "contracts/interfaces/IFakeLendingProtocol.sol": "IFakeLendingProtocol"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "contracts/interfaces/IFakeLendingProtocol.sol": {
+        "keccak256": "0xb30b3a01edcbba2761490e3c62fec9ca0be69242eeab7d316fb199bd99b8030e",
+        "urls": [
+          "bzz-raw://244ef8e41a800bfebbc3e279413a67884269bdd4bac8bd2a07d58235864e43f3",
+          "dweb:/ipfs/QmQEC25D5jGZttjsnFrShq6e4SE79NRXM8HKQurcEKSU2f"
+        ],
+        "license": "MIT"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "contracts/interfaces/IFakeLendingProtocol.sol",
+    "id": 447,
+    "exportedSymbols": {
+      "IFakeLendingProtocol": [
+        446
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "32:103:3",
+    "nodes": [
+      {
+        "id": 442,
+        "nodeType": "PragmaDirective",
+        "src": "32:23:3",
+        "nodes": [],
+        "literals": [
+          "solidity",
+          "0.8",
+          ".17"
+        ]
+      },
+      {
+        "id": 446,
+        "nodeType": "ContractDefinition",
+        "src": "57:77:3",
+        "nodes": [
+          {
+            "id": 445,
+            "nodeType": "FunctionDefinition",
+            "src": "94:38:3",
+            "nodes": [],
+            "functionSelector": "9220ee6b",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "liquidatePosition",
+            "nameLocation": "103:17:3",
+            "parameters": {
+              "id": 443,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "120:2:3"
+            },
+            "returnParameters": {
+              "id": 444,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "131:0:3"
+            },
+            "scope": 446,
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IFakeLendingProtocol",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          446
+        ],
+        "name": "IFakeLendingProtocol",
+        "nameLocation": "67:20:3",
+        "scope": 447,
+        "usedErrors": []
+      }
+    ],
+    "license": "MIT"
+  },
+  "id": 3
+}
