@@ -46,19 +46,27 @@ contract Liquidator is IUniswapV2Callee, Ownable {
     // EXTERNAL NON-VIEW
     //
 
+    // cash flow
+    // USDC: pool -> liquidator -> fakelendingprotocol
+    // ETH: fakelendingprotocol -> liquidator => WETH -> pool
     function uniswapV2Call(address sender, uint256 amount0, uint256 amount1, bytes calldata data) external override {
         // TODO
-        address pair = abi.decode(data, (address));
+        (address pair, uint256 amountsIn) = abi.decode(data, (address, uint256));
+
+        require(msg.sender == pair);
+        require(sender == address(this), "sender must be this contract");
+        require(amount0 > 0 || amount1 > 0, "amount0 or amount1 must be greater than 0");
+
         // status: receive 80 usdc
         // call fakelendingprotocols "liquidatePosition" 80 usdc -> 1 ether
         IERC20(_USDC).approve(_FAKE_LENDING_PROTOCOL, 80 * 10 ** 6);
         IFakeLendingProtocol(_FAKE_LENDING_PROTOCOL).liquidatePosition();
-        // repay repayamount back to the pool
-        (uint256 reserveIn, uint256 reserveOut, ) = IUniswapV2Pair(pair).getReserves();
-        uint256 amountIn = IUniswapV2Router01(_UNISWAP_ROUTER).getAmountIn(amount1, reserveIn, reserveOut);
 
-        // USDC: pool -> liquidator -> fakelendingprotocol
-        // ETH: fakelendingprotocol -> liquidator => WETH -> pool
+        // repay repayamount back to the pool
+        IWETH(_WETH9).deposit{ value: amountsIn }();
+        IERC20(_WETH9).transfer(msg.sender, amountsIn);
+
+        require(address(this).balance >= _MINIMUM_PROFIT, "profit must be greater than 0.01 ether");
     }
 
     // we use single hop path for testing
@@ -67,9 +75,12 @@ contract Liquidator is IUniswapV2Callee, Ownable {
         // TODO
         // pair = factory.get_pair (path)
         address pair = IUniswapV2Factory(_UNISWAP_FACTORY).getPair(path[0], path[1]);
+
         // uint256 repayamount = rounter getAmountint
-        IUniswapV2Pair(pair).swap(0, amountOut, address(this), abi.encode(pair));
+        uint256[] memory amountsIn = IUniswapV2Router01(_UNISWAP_ROUTER).getAmountsIn(amountOut, path);
+
         // pair.swap(0, 80(amountOut) , data != '')
+        IUniswapV2Pair(pair).swap(0, amountOut, address(this), abi.encode(pair, amountsIn[0]));
     }
 
     receive() external payable {}
