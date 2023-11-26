@@ -44,6 +44,8 @@ contract Arbitrage is IUniswapV2Callee, Ownable {
         // repay repayamount back to the pool
         IUniswapV2Pair(sushiPool).swap(0, swapAmount, address(this), new bytes(0));
         IERC20(IUniswapV2Pair(uniPool).token1()).transfer(uniPool, repayAmount);
+
+        require(IERC20(IUniswapV2Pair(uniPool).token1()).balanceOf(address(this)) > 98000000, "profit isn't correct");
     }
 
     // Method 1 is
